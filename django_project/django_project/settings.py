@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -122,8 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = '' # uploaded files wil be saved here
-MEDIA_URL = ''
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # uploaded files wil be saved here
+MEDIA_URL = '/media/' # public url of that directory
 
 # crispy_forms default bootstrap2 so I changed it bootstrap4
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
