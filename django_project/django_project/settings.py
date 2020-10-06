@@ -122,13 +122,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # uploaded files wil be saved here
-MEDIA_URL = '/media/' # public url of that directory
+# uploaded files wil be saved here
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'  # public url of that directory
 
 # crispy_forms default bootstrap2 so I changed it bootstrap4
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'blog-home' # when user logged in his account I redirected him to home page
+# when user logged in his account I redirected him to home page
+LOGIN_REDIRECT_URL = 'blog-home'
 
-LOGIN_URL = 'login' # 
+LOGIN_URL = 'login'
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
